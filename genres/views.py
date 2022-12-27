@@ -10,4 +10,5 @@ from rest_framework.generics import ListCreateAPIView
 # Create your views here.
 
 class MovieView(ListCreateAPIView):
+    
     authentication_classes = [JWTAuthentication]

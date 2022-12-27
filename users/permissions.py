@@ -16,10 +16,11 @@ class IsAccountPermission(permissions.BasePermission):
             return True
 
         return False
+        
 
 class IsMoviePermission(permissions.BasePermission):
 
-    def has_permission(self, request, view):
+    def has_permission(self, request, view: View) -> bool:
         
         if request.method in permissions.SAFE_METHODS: return True
 
