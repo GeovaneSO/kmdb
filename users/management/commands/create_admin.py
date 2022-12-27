@@ -1,9 +1,8 @@
 from users.models import User
 from django.core.management.base import BaseCommand, CommandError
-import ipdb
 
 class Command(BaseCommand):
-    
+
     help = 'Create random users'
 
     def add_arguments(self, parser):
