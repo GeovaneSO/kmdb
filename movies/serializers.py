@@ -4,7 +4,6 @@ from genres.models import Genre
 from datetime import timedelta
 from datetime import datetime
 from .models import Movie
-import ipdb
 
 class MovieSerializer(serializers.ModelSerializer):
 
@@ -20,17 +19,16 @@ class MovieSerializer(serializers.ModelSerializer):
         
         depth = 1
 
-    def create(self, validated_data):
+    def create(self, validated_data: dict) -> Movie:
 
         duration = validated_data.pop("duration")
+        genres   = validated_data.pop("genres")
 
-        hours = datetime.strptime(duration, "%H:%M:%S").time().hour
+        hours   = datetime.strptime(duration, "%H:%M:%S").time().hour
         minutes = datetime.strptime(duration, "%H:%M:%S").time().minute
         seconds = datetime.strptime(duration, "%H:%M:%S").time().second
 
         time = timedelta(hours=hours, minutes=minutes, seconds=seconds)
-
-        genres = validated_data.pop("genres")
  
         genre_objects = [
             Genre.objects.get_or_create(**genre)[0] for genre in genres
