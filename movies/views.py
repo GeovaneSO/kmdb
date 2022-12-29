@@ -1,3 +1,4 @@
+
 from rest_framework import generics
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from users.permissions import IsMoviePermission
@@ -16,6 +17,5 @@ class MovieView(generics.ListCreateAPIView):
     def perform_create(self, serializer):
 
         serializer.save(user=self.request.user, **self.request.data)
-
 
 
