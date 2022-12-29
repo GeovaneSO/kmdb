@@ -4,7 +4,7 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 
 from .models import Movie
 from .serializers import MovieSerializer
-import ipdb
+
 class MovieView(generics.ListCreateAPIView):
 
     authentication_classes = [JWTAuthentication]
@@ -15,7 +15,6 @@ class MovieView(generics.ListCreateAPIView):
 
         
     def perform_create(self, serializer):
-        # ipdb.set_trace()
+
         serializer.save(user=self.request.user, **self.request.data)
-        # print(serializer.data)
 
