@@ -1,8 +1,9 @@
+
+from rest_framework import generics
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from users.permissions import IsMoviePermission
-from .serializers import MovieSerializer
-from rest_framework import generics
 from .models import Movie
+from .serializers import MovieSerializer
 
 class MovieView(generics.ListCreateAPIView):
 
@@ -16,4 +17,5 @@ class MovieView(generics.ListCreateAPIView):
     def perform_create(self, serializer):
 
         serializer.save(user=self.request.user, **self.request.data)
+
 

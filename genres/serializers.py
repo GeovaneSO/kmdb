@@ -8,6 +8,5 @@ class GenreSerializer(serializers.ModelSerializer):
         model = Genre
 
         fields = [
-            "id", 
-            "name"
+            "id", "name"
         ]
