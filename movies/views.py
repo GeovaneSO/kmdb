@@ -1,9 +1,8 @@
-from rest_framework import generics
-from users.permissions import IsMoviePermission
 from rest_framework_simplejwt.authentication import JWTAuthentication
-
-from .models import Movie
+from users.permissions import IsMoviePermission
 from .serializers import MovieSerializer
+from rest_framework import generics
+from .models import Movie
 
 class MovieView(generics.ListCreateAPIView):
 

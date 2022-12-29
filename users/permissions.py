@@ -1,5 +1,4 @@
 from rest_framework import permissions
-from .models import User
 from rest_framework.views import View
 
 class IsAccountPermission(permissions.BasePermission):
@@ -16,6 +15,7 @@ class IsAccountPermission(permissions.BasePermission):
             return True
 
         return False
+
 
 class IsMoviePermission(permissions.BasePermission):
 

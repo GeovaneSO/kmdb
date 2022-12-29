@@ -1,9 +1,6 @@
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 import uuid
-from django.core.validators import MaxValueValidator, MinValueValidator
-
-
-
 
 class Review(models.Model):
     id = models.UUIDField(default=uuid.uuid4, primary_key=True, editable=False)
@@ -23,17 +20,3 @@ class Review(models.Model):
     critic = models.ForeignKey(
         "users.User", on_delete=models.CASCADE, related_name="reviews", default=""
     )
-
-"""
- stars = models.IntegerField(
-        default=1,
-        validators=[
-            MinValueValidator(1),
-            MaxValueValidator(5)
-        ]
-    )
-
-    OU
-
-COM CHOICES
-"""

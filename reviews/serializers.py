@@ -14,9 +14,12 @@ class ReviewSerializer(serializers.ModelSerializer):
 
     def get_critic(self, obj: Review):
        
-        critic = dict(id=obj.critic.id, first_name=obj.critic.first_name, last_name=obj.critic.last_name)
+        return dict(
+            id = obj.critic.id,
+            first_name = obj.critic.first_name, 
+            last_name = obj.critic.last_name
+        )
 
-        return critic
 
     def create(self, validated_data: dict) -> Review:
         

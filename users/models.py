@@ -5,9 +5,6 @@ from django.db import models
 
 
 class User(AbstractUser):
-    """
-    Classe modelo de usuários de um app de filmes e críticas
-    """
     
     id = models.UUIDField(default=uuid.uuid4, primary_key=True, editable=False)
     email = models.EmailField(max_length=127, unique=True)

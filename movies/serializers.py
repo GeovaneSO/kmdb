@@ -4,7 +4,6 @@ from genres.models import Genre
 from datetime import timedelta
 from datetime import datetime
 from .models import Movie
-import ipdb
 
 class MovieSerializer(serializers.ModelSerializer):
 
@@ -19,6 +18,7 @@ class MovieSerializer(serializers.ModelSerializer):
         ]
         
         depth = 1
+
 
     def create(self, validated_data):
 
