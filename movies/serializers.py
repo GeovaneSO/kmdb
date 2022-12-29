@@ -19,7 +19,6 @@ class MovieSerializer(serializers.ModelSerializer):
         
         depth = 1
 
-
     def create(self, validated_data):
 
         duration = validated_data.pop("duration")
